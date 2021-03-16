@@ -1,5 +1,12 @@
 def parse_cookie(query: str) -> dict:
-    return {}
+    dct = {}
+    if query:
+        options = query.split(';')
+        for o in options:
+            if '=' in o:
+                dct[o.split('=')[0]] = '='.join(o.split('=')[1:])
+
+    return dct
 
 
 if __name__ == '__main__':
