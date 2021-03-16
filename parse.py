@@ -2,9 +2,10 @@ def parse(query: str) -> dict:
     dct = {}
     if '?' in query:
         query = query.split('?')[1]
-        options = query.split('&')
-        for o in options:
-            if '=' in o: dct[o.split('=')[0]] = o.split('=')[1]
+        for o in query.split('&'):
+            if '=' in o:
+                o = o.split('=')
+                dct[o[0]] = o[1]
     return dct
 
 
@@ -14,3 +15,4 @@ if __name__ == '__main__':
     assert parse('http://example.com/') == {}
     assert parse('http://example.com/?') == {}
     assert parse('http://example.com/?name=Dima') == {'name': 'Dima'}
+
