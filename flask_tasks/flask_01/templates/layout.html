@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/newstyle.css')}}?time=1234567">
+</head>
+<body>
+    <ul>
+        <li><a href="/">Main Page</a></li>
+        <li><a href="/users/generate">Users Generator</a></li>
+        <li><a href="/password/generate">Password Generator</a></li>
+        <li><a href="/astro">Astronauts</a></li>
+    </ul>
+    <h1>{% block header %}{% endblock %}</h1>
+    {% block content %}{% endblock %}
+</body>
